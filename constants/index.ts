@@ -146,7 +146,6 @@ Thank the candidate for their time.
 Inform them that the company will reach out soon with feedback.
 End the conversation on a polite and positive note.
 
-
 - Be sure to be professional and polite.
 - Keep all your responses short and simple. Use official language, but be kind and welcoming.
 - This is a voice conversation, so keep your responses short, like in a real conversation. Don't ramble for too long.`,
@@ -202,4 +201,18 @@ export const interviewCovers = [
   "/telegram.png",
   "/tiktok.png",
   "/yahoo.png",
+];
+
+export const dummyInterviews: Interview[] = [
+  {
+    id: "1",
+    userId: "user1",
+    role: "Frontend Developer",
+    type: "Technical",
+    techstack: ["React", "Typescript", "Next.js", "Tailwind CSS"],
+    level: "Junior",
+    questions: ["What is React?"],
+    finalized: false,
+    createdAt: "2024-03-15T10:00:002",
+  },
 ];
