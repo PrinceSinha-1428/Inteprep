@@ -21,10 +21,7 @@ export async function signUp(params: SignUpParams) {
     await db.collection("users").doc(uid).set({
       name,
       email,
-      // profileURL,
-      // resumeURL,
     });
-
     return {
       success: true,
       message: "Account created successfully. Please sign in.",
@@ -64,6 +61,10 @@ export const signIn = async (params: SignInParams) => {
       success: false,
       message: "Failed to log into your account",
     };
+  }
+  return {
+    success: false,
+    message: 'Something went wrong'
   }
 };
 

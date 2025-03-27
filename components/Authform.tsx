@@ -40,7 +40,6 @@ const Authform = ({ type }: { type: FormType }) => {
  async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
         if(type === 'sign-up'){
-
           const {name,email,password} = values;
           const userCredentials = await createUserWithEmailAndPassword(auth,email,password)
           const result = await signUp({
