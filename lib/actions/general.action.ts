@@ -1,3 +1,4 @@
+"use server";
 import { feedbackSchema } from "@/constants";
 import { db } from "@/firebase/admin";
 import { google } from "@ai-sdk/google";
@@ -60,6 +61,19 @@ export async function getInterviewByUserId(userId:string): Promise<Interview[] |
             feedbackId: feedback.id
         }
     } catch (error) {
-        console.log("Error saving feedback",error)
+        console.log("Error saving feedback",error);
+        return {
+            success: false
+        }
     }
+  }
+  export async function getFeedbackByInterviewId(params:GetFeedbackByInterviewIdParams): Promise<Feedback | null> {
+    const {userId,interviewId} = params;
+    const feedback = await db.collection('feedback').where('interviewId','==',interviewId).where('userId' ,'==', userId).limit(1).get();
+    if(feedback.empty) return null;
+    const feedbackDocs = feedback.docs[0];
+    return {
+        id: feedbackDocs.id,
+        ...feedbackDocs.data()
+    } as Feedback
   }
