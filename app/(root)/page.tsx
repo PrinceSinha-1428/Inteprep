@@ -16,7 +16,7 @@ const page = async () => {
   const hasUpcomingInterviews = latestInterviews?.length! > 0;
   return (
     <>
-      <section className='card-cta'>
+      <section className='card-cta'>     
         <div className='flex flex-col gap-6 max-w-lg'>
             <h2>Get Interview Ready with AI Powered Practice & Feedback</h2>
             <p className='text-lg'>Practice on Real Interview Questions & Getinstant feedback</p>
